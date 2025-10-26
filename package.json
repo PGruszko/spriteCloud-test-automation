@@ -16,10 +16,12 @@
   "main": "index.js",
   "scripts": {
     "run-test": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json",
-    "run-test-report": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json -r htmlextra"
+    "run-test-report": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json -r htmlextra",
+    "run-ctrf-report": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json -r ctrf-json"
   },
   "devDependencies": {
     "newman": "^6.2.1",
+    "newman-reporter-ctrf-json": "^0.0.12",
     "newman-reporter-htmlextra": "^1.23.1"
   }
 }

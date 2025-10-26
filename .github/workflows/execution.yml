@@ -30,3 +30,13 @@ jobs:
 
             - name: Run Postman collection with Newman
               run: npm run run-test
+
+            - name: Create CTRF json report
+              run: npm run run-ctrf-report
+
+            - name: Publish CTRF API Tests Report
+               uses: ctrf-io/github-test-reporter@v1
+               with:
+                 report-path: './ctrf/*.json'
+                 slowest-report: true
+               if: always()
