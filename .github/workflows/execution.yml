@@ -41,7 +41,7 @@ jobs:
               uses: ctrf-io/github-test-reporter@v1
               with:
                 report-path: './ctrf/ctrf-report.json'
-                slowest-report: true
+                suite-folded-report: true
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               if: always()
