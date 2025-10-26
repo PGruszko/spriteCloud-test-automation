@@ -40,7 +40,7 @@ jobs:
             - name: Publish CTRF API Tests Report
               uses: ctrf-io/github-test-reporter@v1
               with:
-                report-path: '../ctrf/*.json'
+                report-path: './ctrf/ctrf-report.json'
                 slowest-report: true
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
