@@ -1,0 +1,32 @@
+name: Run API Test with Newman
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    postman-newman-run:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Use Node.js 22
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 22
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Check if ReqRes site is accessible
+              run: curl -I https://reqres.in
+
+            - name: Run Postman collection with Newman
+              run: npm run run-test

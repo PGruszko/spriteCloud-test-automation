@@ -1,0 +1,413 @@
+{
+	"info": {
+		"_postman_id": "28a44aae-846b-4c2d-aa4d-ef7afc8e35c7",
+		"name": "SpriteCloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30159372"
+	},
+	"item": [
+		{
+			"name": "List of Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test that response status is 200",
+							"pm.test(\"Should get a successful response\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Parse response JSON",
+							"let jsonData = pm.response.json();",
+							"",
+							"// Test that 'page' key exists and equals 1",
+							"pm.test(\"Page 1 verification\", function () {",
+							"    pm.expect(jsonData).to.have.property('page', 1);",
+							"});",
+							"",
+							"// Test that 'data' is an array",
+							"pm.test(\"The data comes back as a list\", function () {",
+							"    pm.expect(jsonData).to.have.property('data').that.is.an('array');",
+							"});",
+							"",
+							"// Test that each user object in 'data' contains expected keys",
+							"pm.test(\"Every user has all their info\", function () {",
+							"    if (Array.isArray(jsonData.data)) {",
+							"        jsonData.data.forEach(function(user) {",
+							"            pm.expect(user).to.have.all.keys('id', 'email', 'first_name', 'last_name', 'avatar');",
+							"        });",
+							"    } else {",
+							"        pm.expect.fail(\"'data' is not an array\");",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{apiKey}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Successful Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should get a successful response\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has a token property\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"token\");",
+							"});",
+							"",
+							"pm.test(\"Token is a non-empty string\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.token).to.be.a(\"string\").and.not.empty;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"eve.holt@reqres.in\", \"password\": \"test01\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test 1: Check that status code is 200",
+							"pm.test(\"Should get a successful response\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Test 2: Verify response contains required fields (name, job, updatedAt)",
+							"pm.test(\"Response contains required fields (name, job, updatedAt)\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('name');",
+							"    pm.expect(jsonData).to.have.property('job');",
+							"    pm.expect(jsonData).to.have.property('updatedAt');",
+							"});",
+							"",
+							"// Test 3: Verify the response name matches the request body name",
+							"pm.test(\"Response name matches the request body\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var requestBody = JSON.parse(pm.request.body.raw);",
+							"    pm.expect(jsonData.name).to.eql(requestBody.name);",
+							"});",
+							"",
+							"// Test 4: Verify the response job matches the request body job",
+							"pm.test(\"Response job matches the request body\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var requestBody = JSON.parse(pm.request.body.raw);",
+							"    pm.expect(jsonData.job).to.eql(requestBody.job);",
+							"});",
+							"",
+							"// Test 5: Verify updatedAt field exists and is a valid timestamp",
+							"pm.test(\"updatedAt field exists and is a valid timestamp\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.updatedAt).to.exist;",
+							"    var timestamp = new Date(jsonData.updatedAt);",
+							"    pm.expect(timestamp.toString()).to.not.equal('Invalid Date');",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Doe\",\n    \"job\": \"Developer\",\n    \"updatedAt\": \"2025-10-25T21:14:58.974Z\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/users/4",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Verify the user was successfully deleted",
+							"pm.test(\"User deletion was successful\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/users/6",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsuccessful Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Make sure we get a 400 since the password is missing",
+							"pm.test(\"Should return a 400 bad request\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"// Check that the API actually tells us what went wrong",
+							"pm.test(\"Response should include an error field\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"error\");",
+							"});",
+							"",
+							"// Verify we're getting the right error message back",
+							"pm.test(\"Error message should say the password is missing\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.eql(\"Missing password\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"eve.holt@reqres.in\", \"password\": \"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Non-existing User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Check that we get a 404 when looking for a user that doesn't exist",
+							"pm.test(\"Should return 404 when the user isn't found\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/users/23",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delay Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Measure delay 3 seconds\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.greaterThan(3000);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/users?delay=3",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "delay",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

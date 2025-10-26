@@ -1,0 +1,25 @@
+{
+  "name": "spritecloud-test-automation",
+  "version": "1.0.0",
+  "description": "sprite cloud interview",
+  "homepage": "https://github.com/PGruszko/spriteCloud-test-automation#readme",
+  "bugs": {
+    "url": "https://github.com/PGruszko/spriteCloud-test-automation/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PGruszko/spriteCloud-test-automation.git"
+  },
+  "license": "ISC",
+  "author": "Paulina",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "run-test": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json",
+    "run-test-report": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json -r htmlextra"
+  },
+  "devDependencies": {
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}
