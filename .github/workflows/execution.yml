@@ -62,3 +62,11 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+      - name: Publish CTRF API Tests Report
+        uses: ctrf-io/github-test-reporter@v1
+        with:
+          report-path: "./ctrf/ctrf-report-playwright.json"
+          suite-folded-report: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: always()

@@ -25,6 +25,7 @@
     "ci": "^2.3.0",
     "newman": "^6.2.1",
     "newman-reporter-ctrf-json": "^0.0.12",
-    "newman-reporter-htmlextra": "^1.23.1"
+    "newman-reporter-htmlextra": "^1.23.1",
+    "playwright-ctrf-json-reporter": "^0.0.24"
   }
 }
