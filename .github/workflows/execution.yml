@@ -33,6 +33,8 @@ jobs:
 
             - name: Run Postman collection with Newman
               run: npm run run-test
+            - name: Generate Newman report
+              run: npm run run-test-report
 
             - name: Create CTRF json report
               run: npm run run-ctrf-report
@@ -45,3 +47,9 @@ jobs:
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               if: always()
+            - name: HTML Preview
+              id: html_preview
+              uses: pavi2410/html-preview-action@v4
+              with:
+               html_file: './newman/*.html'
+               job_summary: true
