@@ -35,8 +35,8 @@ jobs:
               run: npm run run-ctrf-report
 
             - name: Publish CTRF API Tests Report
-               uses: ctrf-io/github-test-reporter@v1
-               with:
-                 report-path: './ctrf/*.json'
-                 slowest-report: true
-               if: always()
+              uses: ctrf-io/github-test-reporter@v1
+              with:
+                report-path: './ctrf/*.json'
+                slowest-report: true
+              if: always()
