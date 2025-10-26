@@ -1,55 +1,64 @@
 name: Run API Test with Newman
 
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-    postman-newman-run:
-        runs-on: ubuntu-latest
-        permissions:
-         actions: read
-         contents: read
+  postman-newman-api-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
 
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-            - name: Use Node.js 22
-              uses: actions/setup-node@v2
-              with:
-                  node-version: 22
+      - name: Use Node.js 22
+        uses: actions/setup-node@v2
+        with:
+          node-version: 22
 
-            - name: Install dependencies
-              run: npm install
+      - name: Install dependencies
+        run: npm install
 
-            - name: Check if ReqRes site is accessible
-              run: curl -I https://reqres.in
+      - name: Check if ReqRes site is accessible
+        run: curl -I https://reqres.in
 
-            - name: Run Postman collection with Newman
-              run: npm run run-test
-            - name: Generate Newman report
-              run: npm run run-test-report
+      - name: Create CTRF json report
+        run: npm run run-ctrf-report
 
-            - name: Create CTRF json report
-              run: npm run run-ctrf-report
+      - name: Publish CTRF API Tests Report
+        uses: ctrf-io/github-test-reporter@v1
+        with:
+          report-path: "./ctrf/ctrf-report.json"
+          suite-folded-report: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: always()
 
-            - name: Publish CTRF API Tests Report
-              uses: ctrf-io/github-test-reporter@v1
-              with:
-                report-path: './ctrf/ctrf-report.json'
-                suite-folded-report: true
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              if: always()
-            - name: HTML Preview
-              id: html_preview
-              uses: pavi2410/html-preview-action@v4
-              with:
-               html_file: './newman/*.html'
-               job_summary: true
+  playwright-ui-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

@@ -20,6 +20,9 @@
     "run-ctrf-report": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json -r ctrf-json"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.9.1",
+    "ci": "^2.3.0",
     "newman": "^6.2.1",
     "newman-reporter-ctrf-json": "^0.0.12",
     "newman-reporter-htmlextra": "^1.23.1"
