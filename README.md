@@ -9,9 +9,36 @@
 ## Table of Contents
 
 1. [My Approach](#1-my-approach)
+
+   1. [Initial Analysis & Planning](#11-initial-analysis--planning)
+   2. [Technology Choices](#12-technology-choices)
+   3. [API Testing with Postman](#13-api-testing-with-postman)
+   4. [UI Testing with Playwright](#14-ui-testing-with-playwright)
+   5. [CI/CD Pipeline - The Biggest Challenge](#15-cicd-pipeline---the-biggest-challenge)
+   6. [Documentation Approach](#16-documentation-approach)
+   7. [Use of AI Tools - My Philosophy](#17-use-of-ai-tools---my-philosophy)
+   8. [What I Learned](#18-what-i-learned)
+   9. [If I Had More Time](#19-if-i-had-more-time)
+   10. [Final Thoughts](#110-final-thoughts)
+
 2. [Test Plan](#2-test-plan)
+
+   1. [Introduction](#21-introduction)
+   2. [Test Strategy](#22-test-strategy)
+   3. [UI Test Cases](#23-ui-test-cases)
+   4. [API Test Cases](#24-api-test-cases)
+   5. [Test Data](#25-test-data)
+   6. [Test Environment](#26-test-environment)
+   7. [Entry & Exit Criteria](#27-entry--exit-criteria)
+   8. [Test Execution](#28-test-execution)
+   9. [Risks & Mitigation](#29-risks--mitigation)
+   10. [Defect Management](#210-defect-management)
+   11. [Test Maintenance](#211-test-maintenance)
+   12. [Success Metrics](#212-success-metrics)
+   13. [Appendix](#213-appendix)
+
 3. [UI Testing Documentation](#3-ui-testing-documentation)
-4. [API Testing Documentation](#4-api-testing-documentation)
+   1. [Overview](#31-overview)
 
 ---
 
