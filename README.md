@@ -825,12 +825,26 @@ npm run run-api-tests
 - **Videos:** Recorded for failed tests
 - **Trace Files:** Detailed execution traces for debugging
 
+```bash
+# Generate UI test report with Playwright
+npm run generate-ui-test-report
+```
+
+It will open a new tab in your browser with the report
+
 **API Tests:**
 
 - **Postman Report:** Built-in test results in Collection Runner
 - **Newman Report:** HTML/JSON reports via Newman CLI
 - **Response Times:** Measured and displayed for each request
 - **Test Assertions:** Pass/Fail status for each test
+
+```bash
+# Generate API test report with Newman reporter
+npm run generate-api-test-report
+```
+
+Navigate in your project to the "newman" folder and open with your browser the generated HTML file
 
 ---
 
