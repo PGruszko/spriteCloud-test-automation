@@ -1,6 +1,6 @@
 const { test } = require("@playwright/test");
-const LoginPage = require("../pages/LoginPage");
-const InventoryPage = require("../pages/InventoryPage");
+const LoginPage = require("../pages2/LoginPage");
+const InventoryPage = require("../pages2/InventoryPage");
 
 test.describe("Sauce Demo - Sort Products Z-A", () => {
   test("Sort items by name Z-A and validate sorting is correct", async ({
