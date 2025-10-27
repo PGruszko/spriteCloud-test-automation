@@ -811,7 +811,7 @@ npm run run-ui-tests
 **Via Newman (Command Line):**
 
 ```bash
-# Install Newman
+# Run all API tests
 npm run run-api-tests
 ```
 
@@ -940,17 +940,11 @@ npm run run-api-tests
 
 - Playwright Documentation: https://playwright.dev/
 - Sauce Demo Application: https://www.saucedemo.com/
-- UI Tests Documentation: [UI-TESTS.md](./UI-TESTS.md)
 
 **API Testing:**
 
 - ReqRes API: https://reqres.in/
 - Postman Documentation: https://learning.postman.com/
-- API Tests Documentation: [API-TESTS.md](./API-TESTS.md)
-
-**Project:**
-
-- Assignment Document: [Test Case\_ UI & API.pdf](./Test%20Case_%20UI%20&%20API.pdf)
 
 ### 2.13.2 Glossary
 
@@ -1046,27 +1040,7 @@ Note: Tests run serially to maintain the logged-in session state across steps.
 
 ---
 
-## 3.4 Project Structure
-
-```
-SC-Challenge/
-├── pages/                          # Page Object Model classes
-│   ├── LoginPage.js               # Login page
-│   ├── InventoryPage.js           # Product listing
-│   ├── CartPage.js                # Shopping cart
-│   ├── CheckoutPage.js            # Checkout form
-│   ├── CheckoutOverviewPage.js    # Order summary
-│   └── CheckoutCompletePage.js    # Order confirmation
-│
-├── checkout-flow.spec.js          # Full checkout tests
-├── sort-products.spec.js          # Sorting test
-├── failed-login.spec.js           # Login validation tests
-│
-├── playwright.config.js           # Playwright configuration
-└── README.md                      # This file
-```
-
-## 3.5 Page Object Model
+## 3.4 Page Object Model
 
 This project uses the Page Object Model (POM) design pattern. Each page of the application has its own class that encapsulates the page elements and actions.
 
@@ -1081,7 +1055,7 @@ This project uses the Page Object Model (POM) design pattern. Each page of the a
 
 ---
 
-## 3.6 Features
+## 3.5 Features
 
 - Page Object Model design pattern for maintainability
 - Web-first assertions (`toBeVisible()`, `toHaveText()`, `toHaveCount()`)
@@ -1090,50 +1064,11 @@ This project uses the Page Object Model (POM) design pattern. Each page of the a
 - Price validation with mathematical verification
 - Serial test execution for checkout flow to maintain session
 - Screenshots and videos on test failure
-- JSDoc documentation for all page object methods
+- JSDoc documentation for page object methods
 
 ---
 
-## 3.7 Installation & Running Tests
-
-**Prerequisites:**
-
-- Node.js v16 or higher
-- npm
-
-**Install dependencies:**
-
-```bash
-npm install
-npx playwright install
-```
-
-**Run tests:**
-
-```bash
-# All tests
-npx playwright test
-
-# Specific test file
-npx playwright test checkout-flow.spec.js
-npx playwright test sort-products.spec.js
-npx playwright test failed-login.spec.js
-
-# With options
-npx playwright test --headed    # See browser
-npx playwright test --ui        # Interactive mode
-npx playwright test --debug     # Debug mode
-```
-
-**View test report:**
-
-```bash
-npx playwright show-report
-```
-
----
-
-## 3.8 Tools & Technologies
+## 3.7 Tools & Technologies
 
 **Testing Framework:**
 
@@ -1156,7 +1091,7 @@ npx playwright show-report
 
 ---
 
-## 3.9 AI Usage
+## 3.8 AI Usage
 
 AI assistance was used for the following tasks:
 
@@ -1572,31 +1507,7 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 
 ---
 
-## 4.10 Environment Variables
-
-**Optional Configuration:**
-
-```json
-{
-  "baseUrl": "https://reqres.in",
-  "validEmail": "eve.holt@reqres.in",
-  "validPassword": "cityslicka",
-  "testUserId": "2",
-  "invalidUserId": "23",
-  "delaySeconds": "3"
-}
-```
-
-**Usage:**
-
-- Enables easy configuration changes
-- Supports multiple environments (dev, staging, prod)
-- Centralizes test data management
-- Facilitates test maintenance
-
----
-
-## 4.11 Test Coverage Summary
+## 4.10 Test Coverage Summary
 
 **CRUD Operations:**
 
@@ -1622,7 +1533,7 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 
 ---
 
-## 4.12 AI Usage
+## 4.11 AI Usage
 
 AI assistance was used for the following tasks:
 
@@ -1639,16 +1550,3 @@ All API test cases, request/response validations, and assertions were implemente
 **Total Tests:** 7  
 **Last Updated:** October 2025  
 **Status:** All tests passing
-
----
-
-## Additional Documentation
-
-For more detailed information, please refer to:
-
-- [APPROACH.md](./APPROACH.md) - My personal approach and methodology
-- [TEST-PLAN.md](./TEST-PLAN.md) - Comprehensive test strategy
-- [UI-TESTS.md](./UI-TESTS.md) - Detailed UI testing documentation
-- [API-TESTS.md](./API-TESTS.md) - Detailed API testing documentation
-- [POM-SUMMARY.md](./POM-SUMMARY.md) - Page Object Model implementation guide
-- [Test Case\_ UI & API.pdf](./Test%20Case_%20UI%20&%20API.pdf) - Original assignment requirements
