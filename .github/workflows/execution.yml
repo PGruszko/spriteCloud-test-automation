@@ -62,7 +62,7 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-      - name: Publish CTRF API Tests Report
+      - name: Publish CTRF UI Tests Report
         uses: ctrf-io/github-test-reporter@v1
         with:
           report-path: "./ctrf/ctrf-report-playwright.json"
