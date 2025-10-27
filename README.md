@@ -12,8 +12,12 @@
 
    1. [Initial Analysis & Planning](#11-initial-analysis--planning)
    2. [Technology Choices](#12-technology-choices)
+      1. [Why JavaScript?](#why-javascript)
    3. [API Testing with Postman](#13-api-testing-with-postman)
+      1. [Working with AI Tools](#working-with-ai-tools)
    4. [UI Testing with Playwright](#14-ui-testing-with-playwright)
+      1. [Learning and Validation Process](#learning-and-validation-process)
+      2. [The Tax Calculation Challenge](#the-tax-calculation-challenge)
    5. [CI/CD Pipeline - The Biggest Challenge](#15-cicd-pipeline---the-biggest-challenge)
    6. [Documentation Approach](#16-documentation-approach)
    7. [Use of AI Tools - My Philosophy](#17-use-of-ai-tools---my-philosophy)
@@ -24,18 +28,59 @@
 2. [Test Plan](#2-test-plan)
 
    1. [Introduction](#21-introduction)
+      1. [Purpose](#211-purpose)
+      2. [Scope](#212-scope)
+      3. [Test Objectives](#213-test-objectives)
    2. [Test Strategy](#22-test-strategy)
+      1. [Testing Approach](#221-testing-approach)
+      2. [Test Design Pattern - Page Object Model](#222-test-design-pattern---page-object-model)
    3. [UI Test Cases](#23-ui-test-cases)
+      1. [Test Case: UI-1 | Full Checkout and Final Price Validation](#231-test-case-ui-1--full-checkout-and-final-price-validation)
+      2. [Test Case: UI-2 | Product Sorting by Name (Z-A) Validation](#232-test-case-ui-2--product-sorting-by-name-z-a-validation)
+      3. [Test Case: UI-3 | Failed Login Error Validation](#233-test-case-ui-3--failed-login-error-validation)
    4. [API Test Cases](#24-api-test-cases)
+      1. [Test Case: API-1 | Retrieve List of Users](#241-test-case-api-1--retrieve-list-of-users)
+      2. [Test Case: API-2 | Successful Login](#242-test-case-api-2--successful-login)
+      3. [Test Case: API-3 | Update User](#243-test-case-api-3--update-user)
+      4. [Test Case: API-4 | Delete User](#244-test-case-api-4--delete-user)
+      5. [Test Case: API-5 | Failed Login - Missing Password](#245-test-case-api-5--failed-login---missing-password-negative)
+      6. [Test Case: API-6 | User Not Found](#246-test-case-api-6--user-not-found-negative)
+      7. [Test Case: API-7 | Delayed Response](#247-test-case-api-7--delayed-response)
    5. [Test Data](#25-test-data)
+      1. [Test Users](#251-test-users)
+      2. [UI Test Data Generation](#252-ui-test-data-generation)
+      3. [API Test Data](#253-api-test-data)
    6. [Test Environment](#26-test-environment)
+      1. [UI Application Under Test](#261-ui-application-under-test)
+      2. [API Application Under Test](#262-api-application-under-test)
+      3. [Test Execution Environment](#263-test-execution-environment)
+      4. [Test Data Storage](#264-test-data-storage)
    7. [Entry & Exit Criteria](#27-entry--exit-criteria)
+      1. [Entry Criteria](#271-entry-criteria)
+      2. [Exit Criteria](#272-exit-criteria)
    8. [Test Execution](#28-test-execution)
+      1. [Local Environment Setup](#281-local-environment-setup)
+      2. [UI Test Execution Commands](#282-ui-test-execution-commands)
+      3. [API Test Execution](#283-api-test-execution)
+      4. [Test Reporting](#284-test-reporting)
    9. [Risks & Mitigation](#29-risks--mitigation)
+      1. [Identified Risks](#291-identified-risks)
+      2. [Dependencies](#292-dependencies)
    10. [Defect Management](#210-defect-management)
+       1. [Defect Reporting](#2101-defect-reporting)
+       2. [Defect Lifecycle](#2102-defect-lifecycle)
    11. [Test Maintenance](#211-test-maintenance)
+       1. [Maintenance Strategy](#2111-maintenance-strategy)
+       2. [Version Control](#2112-version-control)
+       3. [Continuous Improvement](#2113-continuous-improvement)
    12. [Success Metrics](#212-success-metrics)
+       1. [Test Coverage](#2121-test-coverage)
+       2. [Quality Metrics](#2122-quality-metrics)
    13. [Appendix](#213-appendix)
+       1. [References](#2131-references)
+       2. [Glossary](#2132-glossary)
+       3. [Test Artifacts](#2133-test-artifacts)
+       4. [Document History](#2134-document-history)
 
 3. [UI Testing Documentation](#3-ui-testing-documentation)
    1. [Overview](#31-overview)
@@ -151,13 +196,7 @@ This was probably the steepest learning curve in the entire assignment, but also
 
 ## 1.6 Documentation Approach
 
-I wanted to ensure the project was well-documented, not just for the reviewers, but also because good documentation is something I value in any project. I created multiple documentation files with **Cursor AI support**:
-
-- **TEST-PLAN.md** - Comprehensive test strategy covering both UI and API
-- **UI-TESTS.md** - Specific documentation for Playwright tests
-- **API-TESTS.md** - Detailed API test documentation
-
-I tried to strike a balance between being thorough and being concise. Each document serves a specific purpose and can be read independently or as part of the whole documentation suite.
+I wanted to ensure the project was well-documented, not just for the reviewers, but also because good documentation is something I value in any project. I created documentation files with **Cursor AI support**.
 
 ---
 
