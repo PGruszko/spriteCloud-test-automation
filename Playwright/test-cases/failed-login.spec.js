@@ -1,5 +1,5 @@
 const { test } = require("@playwright/test");
-const LoginPage = require("./pages/LoginPage");
+const LoginPage = require("../pages/LoginPage");
 
 test.describe("Sauce Demo - Failed Login Validations", () => {
   test.beforeEach(async ({ page }) => {

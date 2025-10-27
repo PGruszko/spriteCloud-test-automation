@@ -1,10 +1,10 @@
 const { test } = require("@playwright/test");
-const LoginPage = require("./pages/LoginPage");
-const InventoryPage = require("./pages/InventoryPage");
-const CartPage = require("./pages/CartPage");
-const CheckoutPage = require("./pages/CheckoutPage");
-const CheckoutOverviewPage = require("./pages/CheckoutOverviewPage");
-const CheckoutCompletePage = require("./pages/CheckoutCompletePage");
+const LoginPage = require("../pages/LoginPage");
+const InventoryPage = require("../pages/InventoryPage");
+const CartPage = require("../pages/CartPage");
+const CheckoutPage = require("../pages/CheckoutPage");
+const CheckoutOverviewPage = require("../pages/CheckoutOverviewPage");
+const CheckoutCompletePage = require("../pages/CheckoutCompletePage");
 
 /**
  * Generates a random Dutch first name
