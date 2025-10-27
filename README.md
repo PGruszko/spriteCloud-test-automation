@@ -26,6 +26,7 @@ This document outlines my personal approach and thought process in completing th
 ## 1.1 Initial Analysis & Planning
 
 When I first received the assignment, I spent time carefully analyzing the requirements and identifying what I considered critical and important points to start with. I broke down the submission into manageable pieces and made notes about the key deliverables:
+
 - UI tests for Sauce Demo
 - API tests for ReqRes
 - Test documentation and planning
@@ -58,12 +59,14 @@ I started with the API tests because I wanted to move with something I was alrea
 ### Working with AI Tools
 
 While building the automation scripts in Postman, I used the **Postman AI Agent** to support me. It helped me:
+
 - Generate initial test scripts
 - Structure assertions
 
-However, I want to be clear about my approach to AI: **I validated everything against the official Postman documentation**. I personally think AI is a very supportive tool that can improve the efficiency of my work and help troubleshoot issues. But I'm also aware of its limitations, including potential bias and hallucinations. 
+However, I want to be clear about my approach to AI: **I validated everything against the official Postman documentation**. I personally think AI is a very supportive tool that can improve the efficiency of my work and help troubleshoot issues. But I'm also aware of its limitations, including potential bias and hallucinations.
 
 My process was:
+
 1. Use AI for initial suggestions or when stuck
 2. Review the generated code carefully
 3. Cross-check against official documentation
@@ -81,16 +84,18 @@ After completing the API tests, I moved to UI testing with **Playwright**. This 
 ### Learning and Validation Process
 
 I asked **Cursor Agent AI** for recommendations and best practices around:
+
 - Page Object Model implementation
 - Test structure and organization
 - Playwright-specific features
 - Assertion strategies
 
 Again, similar to my Postman approach, I validated everything against two main sources:
+
 1. [Playwright official documentation](https://playwright.dev/)
 2. [MDN JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-The combination of these resources helped me understand not just *what* to do, but *why* certain approaches work better than others.
+The combination of these resources helped me understand not just _what_ to do, but _why_ certain approaches work better than others.
 
 ### The Tax Calculation Challenge
 
@@ -104,6 +109,7 @@ This took some trial and error, but I eventually figured out the correct formula
 By far, the **biggest challenge** for me was creating passing pipelines and getting the test reports properly integrated into the repository.
 
 This took me a significant amount of time. I was:
+
 - Reading through various documentation
 - Watching YouTube tutorials
 - Trying different configurations
@@ -133,6 +139,7 @@ I tried to strike a balance between being thorough and being concise. Each docum
 I want to be transparent about how I used AI throughout this project:
 
 **What AI Helped With:**
+
 - Code refactoring and restructuring
 - Generating initial boilerplate code
 - Suggesting best practices and patterns
@@ -140,6 +147,7 @@ I want to be transparent about how I used AI throughout this project:
 - Creating documentation structure
 
 **What I Did Myself:**
+
 - All core test logic and validations
 - Understanding the business requirements
 - Analyzing the applications under test
@@ -149,12 +157,14 @@ I want to be transparent about how I used AI throughout this project:
 
 **My position on AI:**
 I view AI as a productivity tool, similar to having a very fast but sometimes unreliable resource to bounce ideas off. It's excellent for:
+
 - Getting unstuck when facing syntax issues
 - Learning new patterns quickly
 - Generating repetitive code
 - Finding alternative approaches
 
 However, I always validate AI-generated code because:
+
 - AI can hallucinate or provide outdated information
 - It doesn't understand context as well as humans
 - Best practices change, and AI training data may be old
@@ -167,18 +177,21 @@ However, I always validate AI-generated code because:
 This assignment taught me several things:
 
 **Technical Skills:**
+
 - Deeper understanding of Playwright and its features
 - Better grasp of JavaScript, especially async/await patterns
 - Experience with CI/CD pipelines and GitHub Actions
 - API testing best practices with Postman
 
 **Process Skills:**
+
 - Importance of planning before coding
 - Value of good documentation
-- How to effectively use AI as a tool 
+- How to effectively use AI as a tool
 - Debugging and troubleshooting different issues
 
 **Professional Growth:**
+
 - Confidence in learning new technologies
 - Better understanding of test automation architecture
 - Experience with modern testing tools and practices
@@ -188,6 +201,7 @@ This assignment taught me several things:
 ## 1.9 If I Had More Time
 
 Given additional time, I would have liked to:
+
 - Add more edge case testing
 - Implement visual regression testing
 - Create a more robust reporting dashboard
@@ -199,7 +213,7 @@ Given additional time, I would have liked to:
 
 ## 1.10 Final Thoughts
 
-This assignment had me learning new things, especially with the CI/CD pipeline setup. It was challenging, but I'm glad I took the time to figure it out rather than skipping it. 
+This assignment had me learning new things, especially with the CI/CD pipeline setup. It was challenging, but I'm glad I took the time to figure it out rather than skipping it.
 
 I approached this project with the same mindset I bring to my work: thoroughness, attention to detail, a willingness to learn, and transparency about my process and tools. I believe in using modern tools (including AI) to work efficiently, but always with validation and understanding.
 
@@ -212,7 +226,9 @@ I hope this document gives you insight into not just what I built, but how and w
 ## 2.1 Introduction
 
 ### 2.1.1 Purpose
+
 This document outlines the test plan for automated testing covering:
+
 1. **UI Testing** - Sauce Demo e-commerce application (https://www.saucedemo.com)
 2. **API Testing** - ReqRes API (https://reqres.in/)
 
@@ -222,14 +238,16 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 
 **In Scope:**
 
-*UI Testing (Playwright):*
+_UI Testing (Playwright):_
+
 - UI functional testing for critical user flows
 - End-to-end checkout process validation
 - Product sorting functionality
 - Login validation (positive and negative scenarios)
 - Price calculation verification
 
-*API Testing (Postman):*
+_API Testing (Postman):_
+
 - RESTful API endpoint testing
 - GET, POST, PUT, DELETE operations
 - Authentication/login validation
@@ -237,10 +255,10 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 - Response time validation (delayed requests)
 - Parameterized requests
 
-
 ### 2.1.3 Test Objectives
 
 **UI Testing Objectives:**
+
 - Verify critical user journeys work as expected
 - Ensure price calculations are accurate
 - Validate error handling for login failures
@@ -248,6 +266,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 - Establish a maintainable automated test suite using POM pattern
 
 **API Testing Objectives:**
+
 - Verify API endpoints respond correctly
 - Validate request/response structure and data
 - Test CRUD operations (Create, Read, Update, Delete)
@@ -262,6 +281,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ### 2.2.1 Testing Approach
 
 **UI Testing:**
+
 - **Tool:** Playwright v1.48+
 - **Language:** JavaScript/Node.js
 - **Design Pattern:** Page Object Model (POM)
@@ -270,6 +290,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 - **Browser:** Chromium (configurable)
 
 **API Testing:**
+
 - **Tool:** Postman / Newman
 - **API Type:** RESTful API
 - **Test Type:** Functional API testing
@@ -279,12 +300,14 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ### 2.2.2 Test Design Pattern - Page Object Model
 
 **Rationale for POM:**
+
 - Improves test maintainability
 - Reduces code duplication
 - Separates test logic from page interactions
 - Makes tests more readable and easier to update
 
 **Implementation:**
+
 - Each page of the application has a corresponding page class
 - Page classes encapsulate element locators and page actions
 - Tests use page objects to interact with the application
@@ -313,27 +336,30 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **File:** `checkout-flow.spec.js`
 
 **Preconditions:**
+
 - Application is accessible
 - Valid test credentials available
 - At least 2 products available in inventory
 
 **Test Steps:**
 
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Navigate to application and login with valid credentials | User successfully logged in, redirected to inventory page |
-| 2 | Add at least 2 random products to cart | Products added, cart badge shows correct count |
-| 3 | Navigate to cart and verify items | All selected items displayed in cart |
-| 4 | Proceed to checkout and fill customer information | Form accepted, navigated to overview page |
-| 5 | Verify price calculations (subtotal, tax, total) | All prices calculated correctly, order completed |
+| Step | Action                                                   | Expected Result                                           |
+| ---- | -------------------------------------------------------- | --------------------------------------------------------- |
+| 1    | Navigate to application and login with valid credentials | User successfully logged in, redirected to inventory page |
+| 2    | Add at least 2 random products to cart                   | Products added, cart badge shows correct count            |
+| 3    | Navigate to cart and verify items                        | All selected items displayed in cart                      |
+| 4    | Proceed to checkout and fill customer information        | Form accepted, navigated to overview page                 |
+| 5    | Verify price calculations (subtotal, tax, total)         | All prices calculated correctly, order completed          |
 
 **Test Data:**
+
 - Username: `standard_user`
 - Password: `secret_sauce`
 - Customer info: Random Dutch names and postal codes
 - Products: Randomly selected (minimum 2, currently testing with 4)
 
 **Pass Criteria:**
+
 - User can complete full checkout flow
 - Cart badge reflects correct item count
 - All selected items appear in cart
@@ -352,25 +378,28 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **File:** `sort-products.spec.js`
 
 **Preconditions:**
+
 - Application is accessible
 - User can login successfully
 - Multiple products exist in inventory
 
 **Test Steps:**
 
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Login to application | Successfully logged in |
-| 2 | Select sort option "Name (Z to A)" | Products reordered |
-| 3 | Verify all products are in reverse alphabetical order | Products sorted correctly |
-| 4 | Verify first product is "Test.allTheThings() T-Shirt (Red)" | Correct product at top |
+| Step | Action                                                      | Expected Result           |
+| ---- | ----------------------------------------------------------- | ------------------------- |
+| 1    | Login to application                                        | Successfully logged in    |
+| 2    | Select sort option "Name (Z to A)"                          | Products reordered        |
+| 3    | Verify all products are in reverse alphabetical order       | Products sorted correctly |
+| 4    | Verify first product is "Test.allTheThings() T-Shirt (Red)" | Correct product at top    |
 
 **Test Data:**
+
 - Username: `standard_user`
 - Password: `secret_sauce`
 - Sort option: Z-A (reverse alphabetical)
 
 **Pass Criteria:**
+
 - Products are displayed in reverse alphabetical order
 - First product is "Test.allTheThings() T-Shirt (Red)"
 - All products remain visible after sorting
@@ -386,20 +415,22 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **File:** `failed-login.spec.js`
 
 **Preconditions:**
+
 - Application is accessible
 - Login page loads correctly
 
 **Test Scenarios:**
 
-| Scenario | Username | Password | Expected Error Message |
-|----------|----------|----------|------------------------|
-| Invalid password | `standard_user` | `wrong_password` | "Username and password do not match any user in this service" |
-| Locked out user | `locked_out_user` | `secret_sauce` | "Sorry, this user has been locked out" |
-| Empty username | (empty) | `secret_sauce` | "Username is required" |
-| Empty password | `standard_user` | (empty) | "Password is required" |
-| Empty credentials | (empty) | (empty) | "Username is required" |
+| Scenario          | Username          | Password         | Expected Error Message                                        |
+| ----------------- | ----------------- | ---------------- | ------------------------------------------------------------- |
+| Invalid password  | `standard_user`   | `wrong_password` | "Username and password do not match any user in this service" |
+| Locked out user   | `locked_out_user` | `secret_sauce`   | "Sorry, this user has been locked out"                        |
+| Empty username    | (empty)           | `secret_sauce`   | "Username is required"                                        |
+| Empty password    | `standard_user`   | (empty)          | "Password is required"                                        |
+| Empty credentials | (empty)           | (empty)          | "Username is required"                                        |
 
 **Pass Criteria:**
+
 - Appropriate error message displayed for each scenario
 - User remains on login page
 - Login button still visible
@@ -422,12 +453,14 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **Endpoint:** `/api/users?page=2`
 
 **Test Steps:**
+
 1. Send GET request to endpoint
 2. Verify response status code is 200
 3. Validate response body structure
 4. Verify users array is present and populated
 
 **Expected Response:**
+
 ```json
 {
   "page": 2,
@@ -439,6 +472,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ```
 
 **Pass Criteria:**
+
 - Status code: 200 OK
 - Response contains "data" array
 - Each user object has: id, email, first_name, last_name, avatar
@@ -454,6 +488,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **Endpoint:** `/api/login`
 
 **Request Body:**
+
 ```json
 {
   "email": "eve.holt@reqres.in",
@@ -462,6 +497,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ```
 
 **Expected Response:**
+
 ```json
 {
   "token": "QpwL5tke4Pnpja7X4"
@@ -469,6 +505,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ```
 
 **Pass Criteria:**
+
 - Status code: 200 OK
 - Response contains "token" field
 - Token is not empty
@@ -484,6 +521,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **Endpoint:** `/api/users/2`
 
 **Request Body:**
+
 ```json
 {
   "name": "morpheus",
@@ -492,6 +530,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ```
 
 **Expected Response:**
+
 ```json
 {
   "name": "morpheus",
@@ -501,6 +540,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ```
 
 **Pass Criteria:**
+
 - Status code: 200 OK
 - Response contains updated name and job
 - Response includes "updatedAt" timestamp
@@ -516,6 +556,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **Endpoint:** `/api/users/2`
 
 **Pass Criteria:**
+
 - Status code: 204 No Content
 - No response body
 
@@ -530,6 +571,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **Endpoint:** `/api/login`
 
 **Request Body:**
+
 ```json
 {
   "email": "eve.holt@reqres.in"
@@ -537,6 +579,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ```
 
 **Expected Response:**
+
 ```json
 {
   "error": "Missing password"
@@ -544,6 +587,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ```
 
 **Pass Criteria:**
+
 - Status code: 400 Bad Request
 - Response contains error message
 - Error message is "Missing password"
@@ -559,11 +603,13 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **Endpoint:** `/api/users/23`
 
 **Expected Response:**
+
 ```json
 {}
 ```
 
 **Pass Criteria:**
+
 - Status code: 404 Not Found
 - Response body is empty object
 
@@ -578,11 +624,13 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **Endpoint:** `/api/users?delay=3`
 
 **Test Steps:**
+
 1. Send GET request with delay parameter
 2. Measure response time
 3. Verify response contains user data
 
 **Pass Criteria:**
+
 - Status code: 200 OK
 - Response time is approximately 3 seconds (±500ms)
 - Response contains valid user data
@@ -594,18 +642,19 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 
 ### 2.5.1 Test Users
 
-| Username | Password | Status | Purpose |
-|----------|----------|--------|---------|
-| `standard_user` | `secret_sauce` | Active | Primary test user for positive scenarios |
-| `locked_out_user` | `secret_sauce` | Locked | Testing locked account error handling |
-| `problem_user` | `secret_sauce` | Active | Available for edge case testing |
-| `performance_glitch_user` | `secret_sauce` | Active | Available for performance testing |
-| `error_user` | `secret_sauce` | Active | Available for error scenario testing |
-| `visual_user` | `secret_sauce` | Active | Available for visual testing |
+| Username                  | Password       | Status | Purpose                                  |
+| ------------------------- | -------------- | ------ | ---------------------------------------- |
+| `standard_user`           | `secret_sauce` | Active | Primary test user for positive scenarios |
+| `locked_out_user`         | `secret_sauce` | Locked | Testing locked account error handling    |
+| `problem_user`            | `secret_sauce` | Active | Available for edge case testing          |
+| `performance_glitch_user` | `secret_sauce` | Active | Available for performance testing        |
+| `error_user`              | `secret_sauce` | Active | Available for error scenario testing     |
+| `visual_user`             | `secret_sauce` | Active | Available for visual testing             |
 
 ### 2.5.2 UI Test Data Generation
 
 **Customer Information:**
+
 - Dutch first names: Random selection from 30 common Dutch first names
 - Dutch last names: Random selection from 30 common Dutch surnames
 - Postal codes: Generated in valid Dutch format (1234AB)
@@ -613,6 +662,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 **Rationale:** Using Dutch data demonstrates international customer support and realistic test data variety.
 
 **Product Selection:**
+
 - Products selected randomly during test execution
 - Minimum 2 products for checkout flow (currently 4 for thorough testing)
 - Ensures tests work with any product combination
@@ -626,6 +676,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 | `peter@klaven` | (no password) | Missing password test |
 
 **Test Endpoints:**
+
 - User ID 2: Standard test user for update/delete operations
 - User ID 23: Non-existent user for 404 testing
 - Page 2: User list retrieval
@@ -635,11 +686,13 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ## 2.6 Test Environment
 
 ### 2.6.1 UI Application Under Test
+
 - **URL:** https://www.saucedemo.com
 - **Type:** Web application
 - **Environment:** Production/Demo
 
 ### 2.6.2 API Application Under Test
+
 - **Base URL:** https://reqres.in/
 - **Type:** RESTful API
 - **Environment:** Production/Demo
@@ -648,12 +701,14 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ### 2.6.3 Test Execution Environment
 
 **UI Tests:**
+
 - **Operating System:** Cross-platform (macOS, Windows, Linux)
 - **Node.js Version:** v16 or higher
 - **Browser:** Chromium (default), configurable for Firefox and WebKit
 - **Test Framework:** Playwright v1.48+
 
 **API Tests:**
+
 - **Tool:** Postman / Newman
 - **Operating System:** Cross-platform
 - **Collection:** SpriteCloud
@@ -662,11 +717,13 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ### 2.6.4 Test Data Storage
 
 **UI Tests:**
+
 - Test credentials: Hard-coded in test files
 - Customer data: Generated at runtime
 - Product selection: Random at runtime
 
 **API Tests:**
+
 - Test data: Stored in Postman environment variables
 - Request bodies: Defined in Postman collection
 - Expected responses: Validated via Postman tests
@@ -678,6 +735,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ### 2.7.1 Entry Criteria
 
 **UI Tests:**
+
 - ✅ Playwright framework installed and configured
 - ✅ Sauce Demo application is accessible
 - ✅ Page objects implemented
@@ -685,6 +743,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 - ✅ Test data prepared
 
 **API Tests:**
+
 - ✅ Postman installed and configured
 - ✅ ReqRes API is accessible
 - ✅ Postman collection created
@@ -694,6 +753,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 ### 2.7.2 Exit Criteria
 
 **UI Tests:**
+
 - ✅ All 11 UI test cases executed
 - ✅ 100% pass rate for critical tests (UI-1, UI-3)
 - ✅ Test report generated
@@ -701,6 +761,7 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 - ✅ Test artifacts saved (screenshots, videos, traces)
 
 **API Tests:**
+
 - ✅ All 7 API test cases executed
 - ✅ 100% pass rate for CRUD operations
 - ✅ Postman test results exported
@@ -711,66 +772,53 @@ The plan covers test scope, approach, test cases, test data, and execution strat
 
 ## 2.8 Test Execution
 
-### 2.8.1 Execution Schedule
+### 2.8.1 Local Environment Setup
 
-**UI Tests:**
-- **Frequency:** On-demand
-- **Duration:** ~15-20 seconds for all 11 tests
-- **Parallel Execution:** Enabled for independent tests (failed-login, sort-products)
-- **Serial Execution:** Required for checkout-flow tests to maintain session state
+```bash
+# 1. Verify Node.js version (must be >=18)
+node --version
 
-**API Tests:**
-- **Frequency:** On-demand
-- **Duration:** ~10-15 seconds for all 7 tests
-- **Execution:** Sequential in Postman Collection Runner
+# 2. Clone repository
+git clone https://github.com/PGruszko/spriteCloud-test-automation.git
+cd spriteCloud-test-automation
+
+# 3. Install Node.js dependencies
+npm install
+
+# 4. Install Playwright browsers
+npx playwright install
+
+# 5. Run api and ui tests
+npm run run-all-tests
+```
 
 ### 2.8.2 UI Test Execution Commands
 
 ```bash
 # Run all UI tests
-npx playwright test
-
-# Run specific test case
-npx playwright test checkout-flow.spec.js
-npx playwright test sort-products.spec.js
-npx playwright test failed-login.spec.js
-
-# Run with UI mode (interactive debugging)
-npx playwright test --ui
-
-# Run in headed mode (visible browser)
-npx playwright test --headed
-
-# Generate and view report
-npx playwright show-report
+npm run run-ui-tests
 ```
 
 ### 2.8.3 API Test Execution
 
 **Via Postman:**
+
 1. Open Postman
 2. Import collection "SpriteCloud"
 3. Click "Run Collection"
 4. View test results in runner
 
 **Via Newman (Command Line):**
+
 ```bash
 # Install Newman
-npm install -g newman
-
-# Run collection
-newman run SpriteCloud.postman_collection.json
-
-# Run with environment
-newman run SpriteCloud.postman_collection.json -e environment.json
-
-# Generate HTML report
-newman run SpriteCloud.postman_collection.json -r html
+npm run run-api-tests
 ```
 
 ### 2.8.4 Test Reporting
 
 **UI Tests:**
+
 - **HTML Report:** Generated automatically after test execution
 - **Console Output:** Real-time test results during execution
 - **Screenshots:** Captured on test failure
@@ -778,6 +826,7 @@ newman run SpriteCloud.postman_collection.json -r html
 - **Trace Files:** Detailed execution traces for debugging
 
 **API Tests:**
+
 - **Postman Report:** Built-in test results in Collection Runner
 - **Newman Report:** HTML/JSON reports via Newman CLI
 - **Response Times:** Measured and displayed for each request
@@ -789,25 +838,27 @@ newman run SpriteCloud.postman_collection.json -r html
 
 ### 2.9.1 Identified Risks
 
-| Risk | Impact | Probability | Mitigation Strategy |
-|------|--------|-------------|---------------------|
-| UI application downtime | High | Low | Implement retry logic, run tests in staging environment |
-| API endpoint unavailability | High | Low | Monitor API status, implement health checks |
-| UI selector changes | Medium | Medium | Use Page Object Model, prefer data-test attributes |
-| API contract changes | Medium | Low | Version API endpoints, maintain API documentation |
-| Test data conflicts | Low | Low | Use unique/random data for each test run |
-| Flaky tests | Medium | Medium | Use Playwright's built-in wait strategies, avoid hard-coded timeouts |
-| Network latency | Low | Medium | Set appropriate timeouts, test in stable network |
+| Risk                        | Impact | Probability | Mitigation Strategy                                                  |
+| --------------------------- | ------ | ----------- | -------------------------------------------------------------------- |
+| UI application downtime     | High   | Low         | Implement retry logic, run tests in staging environment              |
+| API endpoint unavailability | High   | Low         | Monitor API status, implement health checks                          |
+| UI selector changes         | Medium | Medium      | Use Page Object Model, prefer data-test attributes                   |
+| API contract changes        | Medium | Low         | Version API endpoints, maintain API documentation                    |
+| Test data conflicts         | Low    | Low         | Use unique/random data for each test run                             |
+| Flaky tests                 | Medium | Medium      | Use Playwright's built-in wait strategies, avoid hard-coded timeouts |
+| Network latency             | Low    | Medium      | Set appropriate timeouts, test in stable network                     |
 
 ### 2.9.2 Dependencies
 
 **UI Tests:**
+
 - Sauce Demo application availability (saucedemo.com)
 - Network connectivity
 - Browser drivers (automatically managed by Playwright)
 - Node.js runtime environment
 
 **API Tests:**
+
 - ReqRes API availability (reqres.in)
 - Network connectivity
 - Postman application or Newman CLI
@@ -818,6 +869,7 @@ newman run SpriteCloud.postman_collection.json -r html
 ## 2.10 Defect Management
 
 ### 2.10.1 Defect Reporting
+
 - **Tool:** GitHub Issues / Jira / Bug tracking system
 - **Severity Levels:**
   - **Critical:** Blocks main user flows or API endpoints return 500 errors
@@ -826,6 +878,7 @@ newman run SpriteCloud.postman_collection.json -r html
   - **Low:** Minor UI issues, cosmetic problems, documentation issues
 
 ### 2.10.2 Defect Lifecycle
+
 1. Test fails → Investigate root cause
 2. Verify if application bug or test issue
 3. If application bug → Create defect ticket with details
@@ -838,18 +891,21 @@ newman run SpriteCloud.postman_collection.json -r html
 ## 2.11 Test Maintenance
 
 ### 2.11.1 Maintenance Strategy
+
 - **Regular Reviews:** Review tests monthly or when application changes
 - **Refactoring:** Update page objects when UI changes
 - **Test Data Updates:** Refresh test data as needed
 - **Documentation:** Keep test plan and documentation current
 
 ### 2.11.2 Version Control
+
 - All test code stored in Git repository
 - Commit messages follow conventional format
 - Branch strategy: feature branches for new tests
 - Code reviews before merging
 
 ### 2.11.3 Continuous Improvement
+
 - Monitor test execution time
 - Identify and fix flaky tests
 - Add new tests for new features
@@ -861,12 +917,14 @@ newman run SpriteCloud.postman_collection.json -r html
 ## 2.12 Success Metrics
 
 ### 2.12.1 Test Coverage
+
 - **User Flows Covered:** 3 critical flows (login, checkout, sorting)
 - **Test Cases:** 11 automated tests
 - **Page Objects:** 6 page classes
 - **Pass Rate Target:** 100% for stable tests
 
 ### 2.12.2 Quality Metrics
+
 - **Execution Time:** < 20 seconds for full suite
 - **Maintainability:** POM pattern enables easy updates
 - **Reliability:** Tests should pass consistently (< 1% flakiness)
@@ -879,19 +937,23 @@ newman run SpriteCloud.postman_collection.json -r html
 ### 2.13.1 References
 
 **UI Testing:**
+
 - Playwright Documentation: https://playwright.dev/
 - Sauce Demo Application: https://www.saucedemo.com/
 - UI Tests Documentation: [UI-TESTS.md](./UI-TESTS.md)
 
 **API Testing:**
+
 - ReqRes API: https://reqres.in/
 - Postman Documentation: https://learning.postman.com/
 - API Tests Documentation: [API-TESTS.md](./API-TESTS.md)
 
 **Project:**
-- Assignment Document: [Test Case_ UI & API.pdf](./Test%20Case_%20UI%20&%20API.pdf)
+
+- Assignment Document: [Test Case\_ UI & API.pdf](./Test%20Case_%20UI%20&%20API.pdf)
 
 ### 2.13.2 Glossary
+
 - **POM:** Page Object Model
 - **E2E:** End-to-End
 - **UI:** User Interface
@@ -900,22 +962,24 @@ newman run SpriteCloud.postman_collection.json -r html
 ### 2.13.3 Test Artifacts
 
 **UI Tests:**
+
 - Test files: `checkout-flow.spec.js`, `sort-products.spec.js`, `failed-login.spec.js`
 - Page objects: Located in `pages/` directory
 - Configuration: `playwright.config.js`
 - Reports: HTML reports in `playwright-report/`
 
 **API Tests:**
+
 - Postman Collection: `SpriteCloud.postman_collection.json`
 - Environment file: `environment.json`
 - Test results: Exported from Postman Collection Runner
 
 ### 2.13.4 Document History
 
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0 | October 2025 | QA Engineer | Initial test plan creation |
-| 1.1 | October 2025 | QA Engineer | Added API testing section |
+| Version | Date         | Author      | Changes                    |
+| ------- | ------------ | ----------- | -------------------------- |
+| 1.0     | October 2025 | QA Engineer | Initial test plan creation |
+| 1.1     | October 2025 | QA Engineer | Added API testing section  |
 
 ---
 
@@ -934,12 +998,14 @@ This project contains automated UI tests for [Sauce Demo](https://www.saucedemo.
 ## 3.2 Test Credentials
 
 Valid user:
+
 - Username: `standard_user`
 - Password: `secret_sauce`
 
 Other available users: `problem_user`, `performance_glitch_user`, `error_user`, `visual_user`
 
 Locked user (for negative testing):
+
 - Username: `locked_out_user`
 - Password: `secret_sauce`
 
@@ -1004,14 +1070,14 @@ SC-Challenge/
 
 This project uses the Page Object Model (POM) design pattern. Each page of the application has its own class that encapsulates the page elements and actions.
 
-| Page Object | Purpose |
-|-------------|---------|
-| `LoginPage` | Login page interactions and validations |
-| `InventoryPage` | Product listing, sorting, and cart operations |
-| `CartPage` | Shopping cart validation and checkout |
-| `CheckoutPage` | Customer information form |
-| `CheckoutOverviewPage` | Order summary and price validation |
-| `CheckoutCompletePage` | Order confirmation |
+| Page Object            | Purpose                                       |
+| ---------------------- | --------------------------------------------- |
+| `LoginPage`            | Login page interactions and validations       |
+| `InventoryPage`        | Product listing, sorting, and cart operations |
+| `CartPage`             | Shopping cart validation and checkout         |
+| `CheckoutPage`         | Customer information form                     |
+| `CheckoutOverviewPage` | Order summary and price validation            |
+| `CheckoutCompletePage` | Order confirmation                            |
 
 ---
 
@@ -1031,16 +1097,19 @@ This project uses the Page Object Model (POM) design pattern. Each page of the a
 ## 3.7 Installation & Running Tests
 
 **Prerequisites:**
+
 - Node.js v16 or higher
 - npm
 
 **Install dependencies:**
+
 ```bash
 npm install
 npx playwright install
 ```
 
 **Run tests:**
+
 ```bash
 # All tests
 npx playwright test
@@ -1057,6 +1126,7 @@ npx playwright test --debug     # Debug mode
 ```
 
 **View test report:**
+
 ```bash
 npx playwright show-report
 ```
@@ -1066,17 +1136,21 @@ npx playwright show-report
 ## 3.8 Tools & Technologies
 
 **Testing Framework:**
+
 - Playwright v1.48+ - Modern end-to-end testing framework
 - Node.js v16+ - JavaScript runtime
 
 **Design Pattern:**
+
 - Page Object Model (POM) - Maintainable test architecture
 
 **Additional Tools:**
+
 - JSDoc - Method documentation
 - Git - Version control
 
 **Documentation:**
+
 - [Playwright Documentation](https://playwright.dev/)
 - [Playwright Best Practices](https://playwright.dev/docs/best-practices)
 
@@ -1085,6 +1159,7 @@ npx playwright show-report
 ## 3.9 AI Usage
 
 AI assistance was used for the following tasks:
+
 - **Code refactoring**: Restructuring initial tests into Page Object Model pattern
 - **Page object creation**: Supporting creation of reusable page classes with proper encapsulation
 - **Documentation**: Writing JSDoc comments and README documentation
@@ -1122,14 +1197,17 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ## 4.3 Test Credentials
 
 **Valid Login:**
+
 - Email: `eve.holt@reqres.in`
 - Password: `cityslicka`
 
 **Invalid Login (Negative Testing):**
+
 - Email: `peter@klaven`
 - Password: (missing/empty)
 
 **Test Resources:**
+
 - User ID 2: Standard test user for update/delete operations
 - User ID 23: Non-existent user for 404 testing
 - Page 2: User list retrieval
@@ -1146,6 +1224,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 **Request:** No body required
 
 **Expected Response:**
+
 ```json
 {
   "page": 2,
@@ -1165,6 +1244,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ```
 
 **Validations:**
+
 - Status code: 200 OK
 - Response contains "data" array
 - Each user has: id, email, first_name, last_name, avatar
@@ -1178,6 +1258,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 **Endpoint:** `/api/login`
 
 **Request Body:**
+
 ```json
 {
   "email": "eve.holt@reqres.in",
@@ -1186,6 +1267,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ```
 
 **Expected Response:**
+
 ```json
 {
   "token": "QpwL5tke4Pnpja7X4"
@@ -1193,6 +1275,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ```
 
 **Validations:**
+
 - Status code: 200 OK
 - Response contains "token" field
 - Token is not empty string
@@ -1206,6 +1289,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 **Endpoint:** `/api/users/2`
 
 **Request Body:**
+
 ```json
 {
   "name": "morpheus",
@@ -1214,6 +1298,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ```
 
 **Expected Response:**
+
 ```json
 {
   "name": "morpheus",
@@ -1223,6 +1308,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ```
 
 **Validations:**
+
 - Status code: 200 OK
 - Response contains updated "name" field
 - Response contains updated "job" field
@@ -1241,6 +1327,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 **Expected Response:** No content (empty body)
 
 **Validations:**
+
 - Status code: 204 No Content
 - Response body is empty
 - No error returned
@@ -1253,6 +1340,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 **Endpoint:** `/api/login`
 
 **Request Body:**
+
 ```json
 {
   "email": "eve.holt@reqres.in"
@@ -1260,6 +1348,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ```
 
 **Expected Response:**
+
 ```json
 {
   "error": "Missing password"
@@ -1267,6 +1356,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ```
 
 **Validations:**
+
 - Status code: 400 Bad Request
 - Response contains "error" field
 - Error message is "Missing password"
@@ -1282,11 +1372,13 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 **Request:** No body required
 
 **Expected Response:**
+
 ```json
 {}
 ```
 
 **Validations:**
+
 - Status code: 404 Not Found
 - Response body is empty object
 - No user data returned
@@ -1303,6 +1395,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 **Expected Response:** Same as API-1 (user list)
 
 **Validations:**
+
 - Status code: 200 OK
 - Response contains user data
 - Response time is approximately 3 seconds (±500ms)
@@ -1314,6 +1407,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ## 4.5 Features
 
 **Testing Capabilities:**
+
 - RESTful API testing (GET, POST, PUT, DELETE)
 - Request/response validation
 - JSON schema validation
@@ -1323,6 +1417,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 - Error handling validation
 
 **Test Assertions:**
+
 - Status code validation
 - Response body structure checks
 - Field presence and type validation
@@ -1331,6 +1426,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 - Data integrity checks
 
 **Best Practices:**
+
 - Descriptive test names
 - Comprehensive assertions
 - Reusable test scripts
@@ -1344,9 +1440,11 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ### 4.6.1 Via Postman Application
 
 **Prerequisites:**
+
 - Postman installed (Desktop or Web)
 
 **Steps:**
+
 1. Open Postman
 2. Click "Import" in the top left
 3. Select `SpriteCloud.postman_collection.json`
@@ -1356,6 +1454,7 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 7. View results in the Collection Runner
 
 **Manual Testing:**
+
 - Click individual requests to view details
 - Click "Send" to execute single request
 - View response in the bottom panel
@@ -1366,15 +1465,18 @@ This project contains automated API tests for [ReqRes](https://reqres.in/) using
 ### 4.6.2 Via Newman (Command Line)
 
 **Prerequisites:**
+
 - Node.js v16 or higher
 - npm
 
 **Install Newman:**
+
 ```bash
 npm install -g newman
 ```
 
 **Run collection:**
+
 ```bash
 # Basic run
 newman run SpriteCloud.postman_collection.json
@@ -1400,6 +1502,7 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 ## 4.7 Test Reports
 
 ### 4.7.1 Postman Collection Runner
+
 - Real-time test execution results
 - Pass/Fail status for each test
 - Response times displayed
@@ -1407,6 +1510,7 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 - Visual summary of test run
 
 ### 4.7.2 Newman HTML Report
+
 - Comprehensive test results
 - Request/response details
 - Execution timeline
@@ -1415,6 +1519,7 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 - Export and share functionality
 
 **Sample Report Metrics:**
+
 - Total Requests: 7
 - Test Cases Passed: 7
 - Test Cases Failed: 0
@@ -1426,23 +1531,27 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 ## 4.8 Tools & Technologies
 
 **API Testing:**
+
 - **Postman** - API development and testing platform
 - **Newman** - Command-line collection runner for Postman
 - **Node.js** - Runtime for Newman
 
 **API Details:**
+
 - **Protocol:** HTTPS
 - **Format:** JSON
 - **API Type:** RESTful
 - **Authentication:** Token-based
 
 **Validation:**
+
 - JSON schema validation
 - Status code assertions
 - Response time checks
 - Data type verification
 
 **Documentation:**
+
 - [Postman Documentation](https://learning.postman.com/)
 - [Newman Documentation](https://github.com/postmanlabs/newman)
 - [ReqRes API](https://reqres.in/)
@@ -1451,21 +1560,22 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 
 ## 4.9 Response Time Benchmarks
 
-| Test Case | Expected Time | Tolerance |
-|-----------|---------------|-----------|
-| API-1: Get Users | < 500ms | Normal |
-| API-2: Login | < 500ms | Normal |
-| API-3: Update | < 500ms | Normal |
-| API-4: Delete | < 500ms | Normal |
-| API-5: Failed Login | < 500ms | Normal |
-| API-6: Not Found | < 500ms | Normal |
-| API-7: Delayed | ~3000ms | ±500ms |
+| Test Case           | Expected Time | Tolerance |
+| ------------------- | ------------- | --------- |
+| API-1: Get Users    | < 500ms       | Normal    |
+| API-2: Login        | < 500ms       | Normal    |
+| API-3: Update       | < 500ms       | Normal    |
+| API-4: Delete       | < 500ms       | Normal    |
+| API-5: Failed Login | < 500ms       | Normal    |
+| API-6: Not Found    | < 500ms       | Normal    |
+| API-7: Delayed      | ~3000ms       | ±500ms    |
 
 ---
 
 ## 4.10 Environment Variables
 
 **Optional Configuration:**
+
 ```json
 {
   "baseUrl": "https://reqres.in",
@@ -1478,6 +1588,7 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 ```
 
 **Usage:**
+
 - Enables easy configuration changes
 - Supports multiple environments (dev, staging, prod)
 - Centralizes test data management
@@ -1488,20 +1599,24 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 ## 4.11 Test Coverage Summary
 
 **CRUD Operations:**
+
 - ✅ Create: Not tested (POST user endpoint behavior varies)
 - ✅ Read: GET user list, GET single user
 - ✅ Update: PUT user data
 - ✅ Delete: DELETE user
 
 **Authentication:**
+
 - ✅ Successful login with valid credentials
 - ✅ Failed login with missing password
 
 **Error Handling:**
+
 - ✅ 400 Bad Request (missing fields)
 - ✅ 404 Not Found (invalid resource)
 
 **Performance:**
+
 - ✅ Delayed response validation
 - ✅ Response time measurement
 
@@ -1510,6 +1625,7 @@ newman run SpriteCloud.postman_collection.json --delay-request 500
 ## 4.12 AI Usage
 
 AI assistance was used for the following tasks:
+
 - **Test documentation**: Supporting creation of comprehensive API test documentation
 - **Test organization**: Structuring test cases in logical order
 - **Documentation formatting**: Markdown formatting and examples
@@ -1529,10 +1645,10 @@ All API test cases, request/response validations, and assertions were implemente
 ## Additional Documentation
 
 For more detailed information, please refer to:
+
 - [APPROACH.md](./APPROACH.md) - My personal approach and methodology
 - [TEST-PLAN.md](./TEST-PLAN.md) - Comprehensive test strategy
 - [UI-TESTS.md](./UI-TESTS.md) - Detailed UI testing documentation
 - [API-TESTS.md](./API-TESTS.md) - Detailed API testing documentation
 - [POM-SUMMARY.md](./POM-SUMMARY.md) - Page Object Model implementation guide
-- [Test Case_ UI & API.pdf](./Test%20Case_%20UI%20&%20API.pdf) - Original assignment requirements
-
+- [Test Case\_ UI & API.pdf](./Test%20Case_%20UI%20&%20API.pdf) - Original assignment requirements

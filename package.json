@@ -15,7 +15,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "run-tests": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json & npx playwright test",
+    "run-all-tests": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json & npx playwright test",
+    "run-api-tests": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json",
+    "run-ui-tests": "npx playwright test",
     "run-test-report": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json -r htmlextra",
     "run-ctrf-report": "newman run Postman/SpriteCloud.postman_collection.json --environment Postman/ReqRes.postman_environment.json -r ctrf-json"
   },
