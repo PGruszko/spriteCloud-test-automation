@@ -1,4 +1,4 @@
-const { expect } = require('@playwright/test');
+const { expect } = require("@playwright/test");
 
 /**
  * Page Object Model for the Checkout Overview Page (Step Two)
@@ -10,8 +10,10 @@ class CheckoutOverviewPage {
    */
   constructor(page) {
     this.page = page;
-    this.summaryContainer = page.locator('[data-test="checkout-summary-container"]');
-    this.itemPrices = page.locator('.inventory_item_price');
+    this.summaryContainer = page.locator(
+      '[data-test="checkout-summary-container"]'
+    );
+    this.itemPrices = page.locator(".inventory_item_price");
     this.subtotalLabel = page.locator('[data-test="subtotal-label"]');
     this.taxLabel = page.locator('[data-test="tax-label"]');
     this.totalLabel = page.locator('[data-test="total-label"]');
@@ -23,7 +25,9 @@ class CheckoutOverviewPage {
    * Verify the page URL is correct
    */
   async validateURL() {
-    await expect(this.page).toHaveURL('https://www.saucedemo.com/checkout-step-two.html');
+    await expect(this.page).toHaveURL(
+      "https://www.saucedemo.com/checkout-step-two.html"
+    );
   }
 
   /**
@@ -40,7 +44,9 @@ class CheckoutOverviewPage {
    */
   async getItemPrices() {
     const priceTexts = await this.itemPrices.allTextContents();
-    return priceTexts.map(priceText => parseFloat(priceText.replace('$', '')));
+    return priceTexts.map((priceText) =>
+      parseFloat(priceText.replace("$", ""))
+    );
   }
 
   /**
@@ -58,7 +64,7 @@ class CheckoutOverviewPage {
    */
   async getDisplayedSubtotal() {
     const subtotalText = await this.subtotalLabel.textContent();
-    return parseFloat(subtotalText.replace('Item total: $', ''));
+    return parseFloat(subtotalText.replace("Item total: $", ""));
   }
 
   /**
@@ -67,7 +73,7 @@ class CheckoutOverviewPage {
    */
   async getDisplayedTax() {
     const taxText = await this.taxLabel.textContent();
-    return parseFloat(taxText.replace('Tax: $', ''));
+    return parseFloat(taxText.replace("Tax: $", ""));
   }
 
   /**
@@ -76,7 +82,7 @@ class CheckoutOverviewPage {
    */
   async getDisplayedTotal() {
     const totalText = await this.totalLabel.textContent();
-    return parseFloat(totalText.replace('Total: $', ''));
+    return parseFloat(totalText.replace("Total: $", ""));
   }
 
   /**
@@ -94,12 +100,15 @@ class CheckoutOverviewPage {
   async validateTax() {
     const calculatedSubtotal = await this.calculateSubtotal();
     const tax = await this.getDisplayedTax();
-    
-    const percentageCalculatedTax = Math.floor(tax / calculatedSubtotal * 100);
+
+    const percentageCalculatedTax = Math.floor(
+      (tax / calculatedSubtotal) * 100
+    );
     console.log(`percentageCalculatedTax: ${percentageCalculatedTax}`);
     console.log(`tax: ${tax}`);
-    
-    const reCalculatedSubtotal = Math.round(percentageCalculatedTax * calculatedSubtotal) / 100;
+
+    const reCalculatedSubtotal =
+      Math.round(percentageCalculatedTax * calculatedSubtotal) / 100;
     expect(reCalculatedSubtotal).toBe(tax);
   }
 
@@ -110,7 +119,7 @@ class CheckoutOverviewPage {
     const calculatedSubtotal = await this.calculateSubtotal();
     const tax = await this.getDisplayedTax();
     const displayedTotal = await this.getDisplayedTotal();
-    
+
     const calculatedTotal = Math.round((calculatedSubtotal + tax) * 100) / 100;
     expect(displayedTotal).toBe(calculatedTotal);
   }
@@ -140,4 +149,3 @@ class CheckoutOverviewPage {
 }
 
 module.exports = CheckoutOverviewPage;
-

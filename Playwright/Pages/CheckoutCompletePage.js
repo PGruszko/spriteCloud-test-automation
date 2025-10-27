@@ -1,4 +1,4 @@
-const { expect } = require('@playwright/test');
+const { expect } = require("@playwright/test");
 
 /**
  * Page Object Model for the Checkout Complete Page
@@ -19,14 +19,16 @@ class CheckoutCompletePage {
    * Verify the page URL is correct
    */
   async validateURL() {
-    await expect(this.page).toHaveURL('https://www.saucedemo.com/checkout-complete.html');
+    await expect(this.page).toHaveURL(
+      "https://www.saucedemo.com/checkout-complete.html"
+    );
   }
 
   /**
    * Verify the success header text
    * @param {string} expectedText - Expected header text (default: 'Thank you for your order!')
    */
-  async validateSuccessHeader(expectedText = 'Thank you for your order!') {
+  async validateSuccessHeader(expectedText = "Thank you for your order!") {
     await expect(this.completeHeader).toHaveText(expectedText);
   }
 
@@ -39,4 +41,3 @@ class CheckoutCompletePage {
 }
 
 module.exports = CheckoutCompletePage;
-

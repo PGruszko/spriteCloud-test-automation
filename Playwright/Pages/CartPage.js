@@ -1,4 +1,4 @@
-const { expect } = require('@playwright/test');
+const { expect } = require("@playwright/test");
 
 /**
  * Page Object Model for the Shopping Cart Page
@@ -10,17 +10,19 @@ class CartPage {
    */
   constructor(page) {
     this.page = page;
-    this.cartItems = page.locator('.cart_item');
-    this.itemNames = page.locator('.inventory_item_name');
+    this.cartItems = page.locator(".cart_item");
+    this.itemNames = page.locator(".inventory_item_name");
     this.checkoutButton = page.locator('[data-test="checkout"]');
-    this.continueShoppingButton = page.locator('[data-test="continue-shopping"]');
+    this.continueShoppingButton = page.locator(
+      '[data-test="continue-shopping"]'
+    );
   }
 
   /**
    * Verify the page URL is correct
    */
   async validateURL() {
-    await expect(this.page).toHaveURL('https://www.saucedemo.com/cart.html');
+    await expect(this.page).toHaveURL("https://www.saucedemo.com/cart.html");
   }
 
   /**
@@ -66,4 +68,3 @@ class CartPage {
 }
 
 module.exports = CartPage;
-

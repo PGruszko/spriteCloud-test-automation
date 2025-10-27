@@ -1,4 +1,4 @@
-const { expect } = require('@playwright/test');
+const { expect } = require("@playwright/test");
 
 /**
  * Page Object Model for the Login Page
@@ -20,7 +20,7 @@ class LoginPage {
    * Navigate to the Sauce Demo login page
    */
   async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
+    await this.page.goto("https://www.saucedemo.com/");
   }
 
   /**
@@ -75,4 +75,3 @@ class LoginPage {
 }
 
 module.exports = LoginPage;
-

@@ -1,4 +1,4 @@
-const { expect } = require('@playwright/test');
+const { expect } = require("@playwright/test");
 
 /**
  * Page Object Model for the Checkout Information Page (Step One)
@@ -21,7 +21,9 @@ class CheckoutPage {
    * Verify the page URL is correct
    */
   async validateURL() {
-    await expect(this.page).toHaveURL('https://www.saucedemo.com/checkout-step-one.html');
+    await expect(this.page).toHaveURL(
+      "https://www.saucedemo.com/checkout-step-one.html"
+    );
   }
 
   /**
@@ -38,7 +40,9 @@ class CheckoutPage {
    * @param {string} postalCode - Postal code
    */
   async fillCheckoutInformation(firstName, lastName, postalCode) {
-    console.log(`Checkout information: ${firstName} ${lastName}, ${postalCode}`);
+    console.log(
+      `Checkout information: ${firstName} ${lastName}, ${postalCode}`
+    );
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     await this.postalCodeInput.fill(postalCode);
@@ -73,4 +77,3 @@ class CheckoutPage {
 }
 
 module.exports = CheckoutPage;
-

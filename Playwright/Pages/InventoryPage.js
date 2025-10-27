@@ -1,4 +1,4 @@
-const { expect } = require('@playwright/test');
+const { expect } = require("@playwright/test");
 
 /**
  * Page Object Model for the Inventory/Products Page
@@ -11,11 +11,13 @@ class InventoryPage {
   constructor(page) {
     this.page = page;
     this.inventoryContainer = page.locator('[data-test="inventory-container"]');
-    this.inventoryItems = page.locator('.inventory_item');
-    this.productSortDropdown = page.locator('[data-test="product-sort-container"]');
+    this.inventoryItems = page.locator(".inventory_item");
+    this.productSortDropdown = page.locator(
+      '[data-test="product-sort-container"]'
+    );
     this.shoppingCartLink = page.locator('[data-test="shopping-cart-link"]');
-    this.cartBadge = page.locator('.shopping_cart_badge');
-    this.productNames = page.locator('.inventory_item_name');
+    this.cartBadge = page.locator(".shopping_cart_badge");
+    this.productNames = page.locator(".inventory_item_name");
   }
 
   /**
@@ -29,7 +31,9 @@ class InventoryPage {
    * Verify the page URL is correct
    */
   async validateURL() {
-    await expect(this.page).toHaveURL('https://www.saucedemo.com/inventory.html');
+    await expect(this.page).toHaveURL(
+      "https://www.saucedemo.com/inventory.html"
+    );
   }
 
   /**
@@ -47,7 +51,9 @@ class InventoryPage {
    */
   async addProductToCartByIndex(index) {
     const item = this.inventoryItems.nth(index);
-    const productName = await item.locator('.inventory_item_name').textContent();
+    const productName = await item
+      .locator(".inventory_item_name")
+      .textContent();
     await item.locator('[data-test^="add-to-cart-"]').click();
     return productName;
   }
@@ -60,7 +66,7 @@ class InventoryPage {
   async addRandomProductsToCart(count) {
     const itemCount = await this.getItemCount();
     const selectedProductNames = [];
-    
+
     // Generate unique random indices
     const randomIndices = [];
     while (randomIndices.length < count) {
@@ -69,17 +75,17 @@ class InventoryPage {
         randomIndices.push(randomIndex);
       }
     }
-    
+
     console.log(`Adding ${count} products at indices: ${randomIndices}`);
-    
+
     // Add each randomly selected product to cart
     for (const index of randomIndices) {
       const productName = await this.addProductToCartByIndex(index);
       selectedProductNames.push(productName);
       await this.page.waitForTimeout(1500);
     }
-    
-    console.log(`Selected products: ${selectedProductNames.join(', ')}`);
+
+    console.log(`Selected products: ${selectedProductNames.join(", ")}`);
     return selectedProductNames;
   }
 
@@ -142,4 +148,3 @@ class InventoryPage {
 }
 
 module.exports = InventoryPage;
-
